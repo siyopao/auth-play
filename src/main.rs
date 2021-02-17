@@ -20,8 +20,8 @@ async fn main() -> std::io::Result<()> {
         App::new()
             .wrap(middleware::Logger::default())
             .data(db_pool.clone())
-            .data(web::JsonConfig::default().limit(4096))
-            .service(web::resource("/auth").route(web::post().to(handlers::auth))) // limit the size of the payload
+            .data(web::JsonConfig::default().limit(4096)) // limit the size of the payload
+            .service(web::resource("/auth").route(web::post().to(handlers::auth)))
             .service(
                 web::resource("/validate")
                     .wrap(HttpAuthentication::bearer(validate))
