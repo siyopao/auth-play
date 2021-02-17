@@ -1,0 +1,24 @@
+[package]
+name = "auth-play"
+version = "0.1.0"
+authors = ["Craig Pastro <siyopao@gmail.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+actix-web = "3.3"
+actix-web-httpauth = "0.5"
+chrono = "0.4"
+deadpool-postgres = "0.5"
+derive_more = "0.99"
+dotenv = "0.15"
+dotenv_codegen = "0.15"
+env_logger = "0.8"
+jsonwebtoken = "7.2"
+log = "0.4"
+serde = { version = "1.0", features = ["derive"] }
+sha2 = "0.9"
+tokio-postgres = { version = "0.7", features = ["with-chrono-0_4", "with-serde_json-1"] }
+tokio-pg-mapper = "0.2"
+tokio-pg-mapper-derive = "0.2"
