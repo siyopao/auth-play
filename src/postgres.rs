@@ -3,15 +3,9 @@ use deadpool_postgres::{tokio_postgres::Row, Client};
 use sha2::{Digest, Sha512};
 use std::convert::TryFrom;
 
-// Batch execute the following statement
-pub const CREATE_SCHEMA: &str = r##"
-CREATE TABLE IF NOT EXISTS app_user (
-    username TEXT PRIMARY KEY,
-    password TEXT NOT NULL
-);
-"##;
 const INSERT_USER: &str = "INSERT INTO app_user (username, password) VALUES ($1, $2)";
-const SELECT_USER: &str = "SELECT username, password FROM app_user WHERE username = $1 AND password = $2";
+const SELECT_USER: &str =
+    "SELECT username, password FROM app_user WHERE username = $1 AND password = $2";
 
 pub struct User {
     pub username: String,
